@@ -1,0 +1,501 @@
+/* =============================================
+   YONSEI MIND & MEMORY LECTURE SERIES
+   - Deep navy / dark blue backgrounds
+   - Gold/amber accent (#C8A84B)
+   - Clean white text
+   - Serif + sans-serif pairing
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --navy:       #1a2744;
+  --navy-light: #243358;
+  --gold:       #c8a84b;
+  --gold-light: #dfc27a;
+  --white:      #f5f4ef;
+  --text-muted: #a8b4cc;
+  --border:     rgba(200, 168, 75, 0.25);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Source Sans 3', sans-serif;
+  --max-width: 860px;
+  --spacing: 2rem;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--navy);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold-light); }
+
+img { max-width: 100%; display: block; }
+
+/* ── Layout ── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+}
+
+/* ── Site Header / Nav ── */
+.site-header {
+  background-color: var(--navy-light);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem var(--spacing);
+  position: relative;
+  z-index: 100;
+}
+
+.site-header .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.site-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.site-logo .institution {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.0rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.site-logo .series-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--white);
+}
+
+/* Desktop nav */
+.site-nav-wrapper { display: flex; }
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* Hamburger button — hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  width: 32px;
+  height: 32px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+
+  .site-nav-wrapper {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy-light);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem var(--spacing);
+  }
+
+  .site-nav-wrapper.open { display: flex; }
+
+  .site-nav {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .site-nav li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-nav li:last-child { border-bottom: none; }
+
+  .site-nav a {
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: none;
+    font-size: 1rem;
+  }
+
+  .site-nav a.active { color: var(--gold); }
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 5rem var(--spacing) 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero .eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero .subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+/* ── Gold Divider ── */
+.gold-rule {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.5rem auto;
+  border: none;
+}
+
+/* ── Section Titles ── */
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.section-title em { font-style: italic; color: var(--gold); }
+
+/* ── Talk Cards ── */
+.talks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 3rem 0;
+}
+
+.talk-card {
+  background: var(--navy-light);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.5rem;
+  transition: background 0.2s;
+}
+
+.talk-card:hover { background: #2a3d62; }
+
+.talk-card .date-block {
+  text-align: center;
+  padding-top: 0.2rem;
+}
+
+.talk-card .date-block .day {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.talk-card .date-block .month {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.talk-card .date-block .time {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+.talk-card .talk-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.talk-card .talk-info .speaker {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.1rem;
+}
+
+.talk-card .talk-info .affiliation {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.talk-card .talk-info .abstract {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.talk-card .talk-info .abstract.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.toggle-abstract {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.4rem 0 0;
+  display: block;
+  transition: color 0.2s;
+}
+.toggle-abstract:hover { color: var(--gold-light); }
+
+/* ── About Page ── */
+.about-section {
+  padding: 4rem 0;
+  max-width: 660px;
+}
+
+.about-section p { margin-bottom: 1.25rem; color: var(--text-muted); }
+.about-section p:first-of-type { color: var(--white); font-size: 1.1rem; }
+
+.organizers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.organizer-card {
+  background: var(--navy-light);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.organizer-card .headshot {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  background: var(--navy);
+}
+
+/* Placeholder shown when no image is provided */
+.organizer-card .headshot-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.organizer-card .card-body {
+  padding: 1.25rem 1.5rem;
+}
+
+.organizer-card .name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.organizer-card .role {
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.organizer-card .affil {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Venue Info ── */
+.venue-info {
+  background: var(--navy-light);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.venue-info .venue-detail { flex: 1; min-width: 180px; }
+.venue-info .venue-detail .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.venue-info .venue-detail .value { color: var(--white); font-size: 0.95rem; }
+
+/* ── Page Content ── */
+.page-content {
+  padding: 4rem var(--spacing);
+}
+
+.page-header {
+  padding: 3rem var(--spacing) 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header .eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--white);
+}
+
+/* ── Footer ── */
+.site-footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--border);
+  padding: 2rem var(--spacing);
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.site-footer a { color: var(--text-muted); }
+.site-footer a:hover { color: var(--gold); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .talk-card {
+    grid-template-columns: 1fr;
+  }
+  .talk-card .date-block {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    text-align: left;
+  }
+  .talk-card .date-block .day { font-size: 1.4rem; }
+  .talk-card .date-block .time { margin-top: 0; }
+
+}
+
+.gold {
+  color: #C8A84B;
+  font-weight: bold;
+}

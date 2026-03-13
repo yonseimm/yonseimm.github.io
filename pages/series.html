@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yonsei Mind and Memory Research Initiative - Lecture Series</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <p class="eyebrow">Yonsei University</p>
+    <h1><em>Mind and Memory</em><br>Research Initiative</h1>
+    <hr class="gold-rule" />
+  </section>
+
+<div class="container">
+      <p style="padding-top:40px;">
+
+	Hosted by the <em>Veritas Research Center</em>, the <span class="gold">Yonsei Mind and Memory Lecture Series</span> invites philosophers of mind and memory to present their work at Yonsei University.
+
+      </p>
+
+<hr class="gold-rule" style="margin: 2rem 0;" />
+
+	<h2>Spring 2026</h2>
+
+</div> 
+
+  <!-- ── Talks List ── -->
+  <main class="container">
+    <div class="talks-list">
+
+      <!-- Talk 1 -->
+      <article class="talk-card">
+        <div class="date-block">
+          <div class="day">18</div>
+          <div class="month">Mar 2026</div>
+          <div class="time">18:00–19:30</div>
+        </div>
+        <div class="talk-info">
+          <h3>Remembering Without Memory</h3>
+          <p class="speaker">Markus Werning</p>
+          <p class="affiliation">Ruhr-University Bochum, Germany</p>
+	  <img src="../images/werning.jpg" width="150px" style="margin-bottom:10px;" />
+          <p class="abstract collapsed">
+            Already Aristotle, in <em>De Memoria et Reminiscentia</em>, distinguishes memory (mneme) from remembering (anamnesis). The verb "remember" refers to the instantaneous and typically conscious mental event with episodic representational content occurring when we recall a past scenario. The noun "memory", in contrast, denotes a representational but typically non-conscious mental state that perdures over time. In this paper, Werning argues that remembering goes without memory and still generates knowledge about scenarios experienced in the past. The reliable construction of a scenario of the past in remembering is due to an interaction of minimal, i.e. non-representational traces, and statistical regularities acquired over the lifetime.
+          </p>
+          <button class="toggle-abstract" onclick="toggleAbstract(this)">Read more ↓</button>
+          <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">📍 Daewoon Hall Annex 105, Yonsei University (Sinchon Campus), Seoul, South Korea</p>
+        </div>
+      </article>
+
+      <!-- Placeholder: Talk 2 -->
+      <article class="talk-card" style="opacity:0.5;">
+        <div class="date-block">
+          <div class="day">TBA</div>
+          <div class="month">2026</div>
+        </div>
+        <div class="talk-info">
+          <h3 style="color:var(--text-muted);">Upcoming Talk</h3>
+          <p class="affiliation">Details to be announced</p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script src="../js/nav.js"></script>
+  <script>
+    function toggleAbstract(btn) {
+      const abstract = btn.previousElementSibling;
+      const collapsed = abstract.classList.toggle('collapsed');
+      btn.textContent = collapsed ? 'Read more ↓' : 'Read less ↑';
+    }
+  </script>
+
+</body>
+</html>
