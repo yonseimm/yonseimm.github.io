@@ -7,7 +7,7 @@
 const NAV_LINKS = [
   { label: 'Home',   href: 'index.html' },
   { label: 'Lecture Series', href: 'lectureseries.html' },
-  { label: 'Workshop',   href: 'workshop.html' },
+  { label: 'Workshop',   href: 'workshopseries.html' },
 ];
 
 (function () {
