@@ -499,3 +499,36 @@ img { max-width: 100%; display: block; }
   color: #C8A84B;
   font-weight: bold;
 }
+
+.poster-frame {
+  background: #f5f0e8;        /* warm off-white — neutral against the navy */
+  border-radius: 4px;
+  padding: 1.5rem;
+  max-width: 580px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  margin: 2rem 0;
+}
+
+.poster-frame img {
+  width: 100%;
+  border-radius: 2px;
+  display: block;
+}
+
+.poster-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7a6a4a;             /* muted gold-brown, readable on off-white */
+  margin-bottom: 0.75rem;
+}
+
+.poster-caption {
+  font-size: 0.78rem;
+  color: #7a6a4a;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.poster-caption a { color: #7a6a4a; text-decoration: underline; }

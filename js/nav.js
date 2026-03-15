@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: 'Home',   href: 'index.html' },
   { label: 'Lecture Series', href: 'lecture.html' },
   { label: 'Workshop Series',   href: 'workshop.html' },
+  { label: 'Visitors',   href: 'visitors.html' },
 ];
 
 (function () {
